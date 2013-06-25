@@ -1,4 +1,4 @@
-package theDemo.security.command;
+package theDemo.security.hjsec;
 
 import java.io.Closeable;
 import java.io.File;
@@ -8,6 +8,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
+
+import theDemo.security.command.DESCoder;
+import theDemo.security.command.RSACoder;
 
 /**
  * 服务器上存公钥
