@@ -15,7 +15,7 @@ public class MacTest {
         this.proxy = SigarProxyCache.newInstance(this.sigar);
     }
     
-    public String[] getMacAddress() {
+    public String[] getAllMacAddress() {
         try {
             String[] names = this.proxy.getNetInterfaceList();
             String mac;
@@ -34,9 +34,31 @@ public class MacTest {
         return null;
     }
     
-    public String getMacAddress(String name) {
+    public String getMacAddress() {
+        try {
+            String[] names = this.proxy.getNetInterfaceList();
+            String mac = null;
+            if (names != null && names.length > 0) {
+                for (int i = 0; i < names.length; i++) {
+                    NetInterfaceConfig nic = this.sigar.getNetInterfaceConfig(names[i]);
+                    String ip = nic.getAddress();
+                    if (ip != null && !"127.0.0.1".equals(ip) && !"0.0.0.0".equals(ip)) {
+                        System.out.println(ip);
+                        mac = nic.getHwaddr();
+                    }
+                }
+            }
+            return mac;
+        } catch (SigarException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    private String getMacAddress(String name) {
         try {
             NetInterfaceConfig nic = this.sigar.getNetInterfaceConfig(name);
+            System.out.println("ip:" + nic.getAddress() + "  mac:" + nic.getHwaddr());
             return nic.getHwaddr();
         } catch (SigarException e) {
             e.printStackTrace();
@@ -55,11 +77,8 @@ public class MacTest {
     }
     
     public static void main(String[] arg) {
-        String[] macs = new MacTest().getMacAddress();
-        if (macs != null)
-            for (int i = 0; i < macs.length; i++) {
-                System.out.println(macs[i]);
-            }
-        System.out.println(new MacTest().getDefaultMacAddress());
+        System.out.println("-------------mac---------------");
+        MacTest mt = new MacTest();
+        System.out.println(mt.getMacAddress());
     }
 }

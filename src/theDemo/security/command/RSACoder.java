@@ -243,13 +243,12 @@ public abstract class RSACoder extends Coder {
      * @return
      * @throws Exception
      * 
-     *  TODO  此处没有进行一个加强的一个随机数
      */
     public static Map<String, Object> initKey() throws Exception {
         KeyPairGenerator keyPairGen = KeyPairGenerator
                 .getInstance(KEY_ALGORITHM);
         SecureRandom random = new SecureRandom();//加密随机数生成器 (RNG)
-        random.setSeed(GUIDGenerator.instance().generate().getBytes());  //  设置随机种子
+        random.setSeed(GUIDGenerator.instance().generate().getBytes());  //  设置随机种子   此处随机种子是否搞成mac地址
         keyPairGen.initialize(1024,random);
         
        // keyPairGen.initialize(1024);

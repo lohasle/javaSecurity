@@ -121,7 +121,7 @@ public class HJCoder {
     
     /**
      * 私钥加密
-     * 
+     * des rsa
      * @param str
      * @param rsaPrivateKey
      *            私钥字符串
@@ -131,12 +131,29 @@ public class HJCoder {
      */
     public byte[] encrypt(String str, String rsaPrivateKey, String desPassword) {
         try {
-            byte[] encodedData = RSACoder.encryptByPrivateKey(str.getBytes(), rsaPrivateKey);
-            return DESCoder.desCrypto(encodedData, desPassword);
+            byte[] encodedData = DESCoder.desCrypto(str.getBytes(), desPassword);
+            return RSACoder.encryptByPrivateKey(encodedData, rsaPrivateKey);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         } // 数据用公钥加密
+        return null;
+    }
+    
+    
+    /**
+     * 公钥解密
+     * 
+     * @return
+     */
+    public static byte[] decrypt(byte[] encryptByte,String desPassword,String rsaPublicKey) {
+        try {
+            byte[] decodedData = RSACoder.decryptByPublicKey(encryptByte, rsaPublicKey);
+            return DESCoder.decrypt(decodedData, desPassword);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         return null;
     }
     
@@ -145,10 +162,10 @@ public class HJCoder {
      * 
      * @return
      */
-    public byte[] decrypt(byte[] encryptByte) {
+    public  byte[] decrypt(byte[] encryptByte) {
         try {
-            byte[] decodedData = DESCoder.decrypt(encryptByte, desPassword);
-            return RSACoder.decryptByPublicKey(decodedData, rsaPublicKey);
+            byte[] decodedData = RSACoder.decryptByPublicKey(encryptByte, rsaPublicKey);
+            return DESCoder.decrypt(decodedData, desPassword);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -175,6 +192,5 @@ public class HJCoder {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        
     }
 }
