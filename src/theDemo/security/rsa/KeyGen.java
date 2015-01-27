@@ -20,7 +20,7 @@ public class KeyGen {
      */
     public static void main(String[] args) throws Exception {
         // 加密的种子信息
-        String keyInfo = "macaddress"; // 
+        String keyInfo = "weizy2015"; //
         KeyGen kg = new KeyGen();
         kg.genKeys(keyInfo);
     }
@@ -42,10 +42,12 @@ public class KeyGen {
         // 取得公钥
         PublicKey publicKey = kp.getPublic();
         System.out.println(publicKey);
-        saveFile(publicKey, "C:\\D\\technology\\security\\pk.dat");
+        saveFile(publicKey, "C:\\pk.dat");
         // 取得私钥
+        System.out.println("------------------>");
         PrivateKey privateKey = kp.getPrivate();
-        saveFile(privateKey, "C:\\D\\technology\\security\\sk.dat");
+        System.out.println(privateKey);
+        saveFile(privateKey, "C:\\sk.dat");
         
     }
     

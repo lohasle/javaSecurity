@@ -1,13 +1,13 @@
 package theDemo.security.hjsec;
 
-import org.hyperic.sigar.NetInterfaceConfig;
+/*import org.hyperic.sigar.NetInterfaceConfig;
 import org.hyperic.sigar.Sigar;
 import org.hyperic.sigar.SigarException;
 import org.hyperic.sigar.SigarProxy;
-import org.hyperic.sigar.SigarProxyCache;
+import org.hyperic.sigar.SigarProxyCache;*/
 
 public class MacTest {
-    private Sigar      sigar;
+   /* private Sigar      sigar;
     private SigarProxy proxy;
     
     public MacTest() {
@@ -80,5 +80,5 @@ public class MacTest {
         System.out.println("-------------mac---------------");
         MacTest mt = new MacTest();
         System.out.println(mt.getMacAddress());
-    }
+    }*/
 }

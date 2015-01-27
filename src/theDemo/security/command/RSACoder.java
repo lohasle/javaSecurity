@@ -1,5 +1,7 @@
 package theDemo.security.command;
 
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.security.Key;
 import java.security.KeyFactory;
 import java.security.KeyPair;
@@ -13,6 +15,7 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -266,5 +269,35 @@ public abstract class RSACoder extends Coder {
         keyMap.put(PUBLIC_KEY, publicKey);
         keyMap.put(PRIVATE_KEY, privateKey);
         return keyMap;
+    }
+
+
+    //test
+    public static void main(String[] args) throws Exception {
+        String token = "admin/t"+new Date().getTime()+"/t123456";
+        Map myRsa = initKey();
+        String pri = getPrivateKey(myRsa);
+        String pub = getPublicKey(myRsa);
+        System.out.println("公钥："+pub);
+        System.out.println("私钥："+pri);
+        System.out.println("---------->");
+
+        System.out.println("加密前--->"+token);
+        //公钥加密
+        byte[] key1 = encryptByPublicKey(token.getBytes(),pub);
+        String key1str = URLEncoder.encode(Base64.encodeBytes(key1));// base64 编码 + url 编码
+
+        System.out.println("加密后--->"+key1str);
+
+        /// 解密
+
+        byte[] de_key_url = Base64.decode(URLDecoder.decode(key1str).getBytes());
+
+        //私钥解密
+        byte[] de_key =  decryptByPrivateKey(de_key_url,pri);
+
+
+        System.out.println("解密后--->"+new String(de_key));
+
     }
 }

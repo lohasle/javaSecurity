@@ -174,14 +174,14 @@ public class HJCoder {
     }
     
     public static void main(String[] args) throws Exception {
-        String desPass = "huijinhuijin";
+        String desPass = "weizy2015";
         try {
             HJCoder hjCoder = HJCoder.getInstance(desPass, HJCoder.DEFAULT_KEY_ALGORITHM);
-            hjCoder.saveKeysToFile("C:\\D\\technology");
+            hjCoder.saveKeysToFile("C:\\");
             String str = "aa中文";// 需要加密的字符
             System.out.println("加密之前： " + str);
             byte[] encodedData = hjCoder.encrypt(str,
-                hjCoder.readFileToString("C:\\D\\technology\\pri.data"), desPass);
+                hjCoder.readFileToString("C:\\pri.data"), desPass);
             System.out.println("------------开始加密----------");
             String encodedStr = new String(encodedData);
             System.out.println("加密之后: " + encodedStr);
