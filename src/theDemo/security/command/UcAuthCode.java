@@ -1,6 +1,8 @@
 package theDemo.security.command;
 
 import java.io.*;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
@@ -8,7 +10,7 @@ import java.util.*;
 /**
  * discuz   AuthCode  算法
  */
-public class DizcuzAuthCode {
+public class UcAuthCode {
 
     public enum DiscuzAuthcodeMode {
         Encode, Decode
@@ -318,21 +320,24 @@ public class DizcuzAuthCode {
         return cal.getTimeInMillis() / 1000;
     }
 
+
+    public static String generateToken(String userName,String pwd,String key){
+        //1 结构 用户名\t+时间戳\t+密码
+        String str = userName+"\t"+new Date().getTime()+"\t"+pwd+"\t30000";
+        //2 authcode 加密
+        String token = URLEncoder.encode(UcAuthCode.authcodeEncode(str,key));
+        return token;
+    }
+
     public static void main(String[] args) {
 
-        String test = "admin/tadsad/dsada";
-        String key = "123456";
-        String afStr = DizcuzAuthCode.authcodeEncode(test, key);
-        System.out.println("--------encode:" + afStr);
+        String key = "weizy_tobetcmno1";
+        String tokenValue = generateToken("banzhu","123456",key);
+        System.out.println("--------encode:" + tokenValue);
         long lStart = System.currentTimeMillis();
-        System.out.println("解码后：" + DizcuzAuthCode.authcodeDecode(afStr, key));
+        System.out.println("解码后：" + UcAuthCode.authcodeDecode(URLDecoder.decode(tokenValue), key));
         long lUseTime = System.currentTimeMillis() - lStart;
         System.out.println("加解密耗时：" + lUseTime + "毫秒");
-        String deStr = DizcuzAuthCode
-                .authcodeDecode(
-                        "0084tuF6jOu8bVvO//fcV6fXL/CCcUYVJby2nQOofjRasbvrqYNupR6eQJ2rDnhh1XvxWTft4Ub5TSdZA2Y3Ts0yhH8UrziYy5dXl3MHC5freHTOdAfgfFofcnQvLwo+BvD1hT7J9qw57Ral4NC+KNTc/Vj1CzPpftA5P6qUO3KB",
-                        key);
-        System.out.println("--------decode:" + deStr);
 
     }
 
