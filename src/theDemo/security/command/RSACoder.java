@@ -26,7 +26,7 @@ import theDemo.security.rsa.GUIDGenerator;
 
 /**
  * RSA安全编码组件
- * 
+ * rsa
  * @version 1.0
  * @since 1.0
  */
