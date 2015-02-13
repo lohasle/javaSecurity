@@ -19,7 +19,7 @@ public class SecurityUtil {
     
     /**
      * BASE64解密
-     * 
+     * base
      * @param key
      * @return
      * @throws Exception
