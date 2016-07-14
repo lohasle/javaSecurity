@@ -8,14 +8,9 @@ import java.security.NoSuchAlgorithmException;
 import java.io.*;
 
 public class ShortUrl {
-    public static void main(String[] args){
-        String url = "http://www.sunchis.com";
-        for(String string:ShortText(url)){
-            print(string);
-        }
-    }
+
     public static String[] ShortText(String string){
-        String key = "XuLiang";			//自定义生成MD5加密字符串的混合KEY
+        String key = "lohas";			//自定义生成MD5加密字符串的混合KEY
         String[] chars = new String[]{		//要使用生成URL的字符
                 "a","b","c","d","e","f","g","h",
                 "i","j","k","l","m","n","o","p",

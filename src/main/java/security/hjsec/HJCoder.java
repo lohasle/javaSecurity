@@ -175,7 +175,7 @@ public class HJCoder {
     }
     
     public static void main(String[] args) throws Exception {
-        String desPass = "weizy2015";
+        String desPass = "lohasle";
         try {
             HJCoder hjCoder = HJCoder.getInstance(desPass, HJCoder.DEFAULT_KEY_ALGORITHM);
             hjCoder.saveKeysToFile("C:\\");
