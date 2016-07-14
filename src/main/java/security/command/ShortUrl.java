@@ -1,4 +1,4 @@
-package theDemo.security.command;
+package security.command;
 
 /**
  * Created by lohas on 2015/1/27.

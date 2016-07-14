@@ -1,4 +1,4 @@
-package theDemo.security.command;
+package security.command;
 
 
 import java.security.MessageDigest;

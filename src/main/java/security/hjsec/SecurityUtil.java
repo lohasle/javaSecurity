@@ -1,4 +1,4 @@
-package theDemo.security.hjsec;
+package security.hjsec;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -10,7 +10,7 @@ import java.util.Map;
 
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
-import theDemo.security.rsa.GUIDGenerator;
+import security.rsa.GUIDGenerator;
 
 public class SecurityUtil {
     private static final String RSA_PUBLIC_KEY = "RSAPublicKey";

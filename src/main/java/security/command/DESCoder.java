@@ -1,4 +1,4 @@
-package theDemo.security.command;
+package security.command;
 
 import java.security.SecureRandom;
 
@@ -10,7 +10,7 @@ import javax.crypto.spec.DESKeySpec;
 /**
  * DES对称加密
  * 
- * @author 付乐
+ * @author lohas
  * @createTime 2013-6-25
  */
 public class DESCoder {
@@ -66,21 +66,5 @@ public class DESCoder {
         // 真正开始解密操作
         return cipher.doFinal(src);
     }
-    
-    public static void main(String[] args) {
-        // 待加密内容
-        String str = "测试内容";
-        // 密码长度大于8
-        String password = "huijinhuijin";
-        System.out.println("加密内容: "+str);
-        byte[] result = desCrypto(str.getBytes(), password);
-        System.out.println("加密后内容为：" + new String(result));
-        // 直接将如上内容解密
-        try {
-            byte[] decryResult = decrypt(result, password);
-            System.out.println("加密后内容为：" + new String(decryResult));
-        } catch (Exception e1) {
-            e1.printStackTrace();
-        }
-    }
+
 }

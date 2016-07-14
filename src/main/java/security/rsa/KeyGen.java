@@ -1,4 +1,4 @@
-package theDemo.security.rsa;
+package security.rsa;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.security.KeyPair;

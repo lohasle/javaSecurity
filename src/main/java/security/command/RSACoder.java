@@ -1,4 +1,4 @@
-package theDemo.security.command;
+package security.command;
 
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -21,7 +21,7 @@ import java.util.Map;
 
 import javax.crypto.Cipher;
 
-import theDemo.security.rsa.GUIDGenerator;
+import security.rsa.GUIDGenerator;
 
 
 /**

@@ -1,4 +1,7 @@
-package theDemo.security.hjsec;
+package security.hjsec;
+
+import security.command.DESCoder;
+import security.command.RSACoder;
 
 import java.io.Closeable;
 import java.io.File;
@@ -9,13 +12,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
 
-import theDemo.security.command.DESCoder;
-import theDemo.security.command.RSACoder;
 
 /**
  * 服务器上存公钥
  * 
- * @author 付乐
+ * @author lohas
  * @createTime 2013-6-25
  */
 public class HJCoder {

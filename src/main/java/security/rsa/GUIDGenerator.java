@@ -1,4 +1,4 @@
-package theDemo.security.rsa;
+package security.rsa;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

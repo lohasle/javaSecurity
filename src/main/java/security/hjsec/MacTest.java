@@ -1,4 +1,4 @@
-package theDemo.security.hjsec;
+package security.hjsec;
 
 /*import org.hyperic.sigar.NetInterfaceConfig;
 import org.hyperic.sigar.Sigar;

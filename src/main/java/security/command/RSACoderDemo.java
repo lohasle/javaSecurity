@@ -1,4 +1,4 @@
-package theDemo.security.command;
+package security.command;
 
 import javax.crypto.Cipher;
 import java.net.URLDecoder;

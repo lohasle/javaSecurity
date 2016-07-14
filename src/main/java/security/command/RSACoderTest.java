@@ -1,4 +1,5 @@
-package theDemo.security.command;
+package security.command;
+import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.Before;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -9,7 +10,7 @@ import org.junit.Test;
 
 /**
  * 
- * @author 梁栋
+ * @author
  * @version 1.0
  * @since 1.0
  */
