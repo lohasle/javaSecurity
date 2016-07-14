@@ -32,6 +32,7 @@ public class KeyGen {
      * @throws Exception
      */
     public void genKeys(String keyInfo) throws Exception {
+        System.out.println("111");
         KeyPairGenerator keygen = KeyPairGenerator.getInstance("RSA");
         SecureRandom random = new SecureRandom();//加密随机数生成器 (RNG)
         random.setSeed(keyInfo.getBytes());  //  设置随机种子
